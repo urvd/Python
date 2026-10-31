@@ -104,7 +104,7 @@ jobs:
           persist-credentials: false
 
       - name: Récupérer le rapport de tests
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         continue-on-error: true
         with:
           name: rapport-tests
@@ -115,6 +115,7 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           use_sticky_comment: true
+          track_progress: true # publie le rapport dans un commentaire de suivi
           prompt: |
             Tu es l'assistant développeur et fonctionnel du propriétaire de ce dépôt, son « second cerveau ».
             Réponds en français.
